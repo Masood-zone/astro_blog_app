@@ -1,14 +1,67 @@
+---
+const pageTitle = "My About Learning Blog";
+const pageDescription = "Learn more about me and my blog journey.";
+
+
+const identity = {
+	firstname: "Masood",
+	country: "Ghana",
+	age: 21,
+	occupation: "Software Engineer",
+	interests: ["coding", "gaming", "reading", "traveling"],
+}
+const skills = [
+	"JavaScript",
+	"TypeScript",
+	"React",
+	"Node.js",
+	"Astro",
+	"CSS",
+	"HTML",
+	"Writing Tutorials",
+];
+
+const happy= true;
+const finished = false;
+const goal =3;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+</head>
 <body>
-    <a href="/">Home</a>
+     <a href="/">Home</a>
     <a href="/about">About</a>
     <a href="/blog">Blog</a>
     <h1>
-        About Me
+        {pageTitle}
     </h1>
-    <p>
-        Welcome to my blog! I'm excited to share my thoughts and experiences with you.
-    </p>
-    <p>
-        This is a simple blog built with Astro, showcasing how to create a static site with dynamic content.
-        </p>
+        <p>Here are facts about me:</p>
+		<ul>
+			<li>My Name is {identity.firstname}</li>
+			<li>I'm from {identity.country}</li>
+			<li>I'm {identity.age} years old</li>
+			<li>I'm a {identity.occupation}</li>
+			<li>My interests include {identity.interests.join(", ")}</li>
+		</ul>
+
+		<p>My Skills include:</p>
+		<ul>
+			{skills.map(skill => (
+				<li >{skill}</li>
+			))}
+		</ul>
+
+    {happy && <p>I'm happy to share my journey with you!</p>}
+    {finished && <p>I've finished my first blog post!</p>}
+    {goal === 3 ? (
+        <p>My goal is to write 3 blog posts this month.</p>
+    ) : (
+        <p>I'm still working towards my goal of writing 3 blog posts.</p>
+    )}
 </body>
+</html>
