@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.astro\""
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.12",
     "astro": "^5.10.1"
   }
 }
