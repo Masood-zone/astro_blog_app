@@ -1,4 +1,6 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 const pageTitle = "My About Learning Blog";
 const pageDescription = "Learn more about me and my blog journey.";
 
@@ -24,22 +26,26 @@ const skills = [
 const happy= true;
 const finished = false;
 const goal =3;
+
+const skillcolor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-</head>
-<body>
-     <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
-    <h1>
-        {pageTitle}
-    </h1>
+  <style define:vars={{skillcolor,fontWeight,textCase}}>
+         h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
+    color: var(--skillcolor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+    </style>
+    <BaseLayout
+        pageTitle={pageTitle}
+        pageDescription={pageDescription}
+    >
         <p>Here are facts about me:</p>
 		<ul>
 			<li>My Name is {identity.firstname}</li>
@@ -52,7 +58,7 @@ const goal =3;
 		<p>My Skills include:</p>
 		<ul>
 			{skills.map(skill => (
-				<li >{skill}</li>
+				<li class="skill">{skill}</li>
 			))}
 		</ul>
 
@@ -63,5 +69,4 @@ const goal =3;
     ) : (
         <p>I'm still working towards my goal of writing 3 blog posts.</p>
     )}
-</body>
-</html>
+</BaseLayout>

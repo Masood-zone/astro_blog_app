@@ -1,24 +1,11 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 const pageDescription = "Welcome to my Astro site, where I share my journey and projects.";
-
-
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<meta name="description" content={pageDescription} />
-	</head>
-	<body>
-		<a href="/">Home</a>
-		<a href="/about">About</a>
-		<a href="/blog">Blog</a>
-		<h1>{pageTitle}</h1>
-		
-	</body>
-</html>
+<BaseLayout 
+	pageTitle={pageTitle}
+	pageDescription={pageDescription}
+>
+	<h2>My Awesome blog subtitle</h2>
+</BaseLayout>
